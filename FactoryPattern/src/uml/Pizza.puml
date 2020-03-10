@@ -1,0 +1,41 @@
+@startuml
+ class Pizza{
+    - String name;
+    + void setName(String name);
+    {abstract} void prepare();
+    + void bake();
+    + void cut();
+    + void box();
+}
+
+class ChessePizza {
+
+}
+
+class GreekPizza{
+
+}
+
+class ChinaPizza{
+
+}
+
+class OrderType{
+    + Pizza pizza;
+    + void createPizza();
+    + String typeIn();
+}
+
+class OrderPizzaClient{
+    {static} final void main(String[] args);
+}
+
+Pizza <|-- ChessePizza
+Pizza <|-- GreekPizza
+Pizza <|-- ChinaPizza
+OrderType --> ChinaPizza
+OrderType --> GreekPizza
+OrderType --> ChessePizza
+/'OrderType *-- Pizza'/
+OrderPizzaClient *-- OrderType
+@enduml
